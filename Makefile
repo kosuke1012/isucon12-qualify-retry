@@ -61,8 +61,9 @@ pprof-build:
 		rm -f pprof-isuports; \
 		/usr/local/go/bin/go build -o pprof-isuports"
 pprof-request:
+	sleep 1; \
 	ssh isucon12-qualify-retry-1 " \
-		/usr/local/go/bin/go tool pprof -seconds=75 /home/isucon/webapp/go/isuports/pprof-isuports http://localhost:6060/debug/pprof/profile"
+		/usr/local/go/bin/go tool pprof -seconds=75 /home/isucon/webapp/go/cmd/isuports/pprof-isuports http://localhost:6060/debug/pprof/profile"
 
 pprof-kill:
 	ssh isucon12-qualify-retry-1 "pgrep -f 'pprof' | xargs kill;"
