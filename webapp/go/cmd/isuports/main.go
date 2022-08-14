@@ -1,7 +1,7 @@
 package main
 
 import (
-	isuports "github.com/isucon/isucon12-qualify/webapp/go"
+	isuports "github.com/kosuke1012/isucon12-qualify-retry/webapp/go"
 )
 
 func main() {

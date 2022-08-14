@@ -1,4 +1,4 @@
-module github.com/isucon/isucon12-qualify/webapp/go
+module github.com/kosuke1012/isucon12-qualify-retry/webapp/go
 
 go 1.18
 
