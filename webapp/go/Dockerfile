@@ -1,4 +1,4 @@
-FROM golang:1.18.4-bullseye
+FROM debian:bullseye-slim
 
 WORKDIR /tmp
 ENV DEBIAN_FRONTEND=noninteractive
@@ -15,9 +15,6 @@ USER isucon
 
 RUN mkdir -p /home/isucon/webapp/go
 WORKDIR /home/isucon/webapp/go
-COPY --chown=isucon:isucon ./ /home/isucon/webapp/go/
+COPY --chown=isucon:isucon ./bin-isuports /home/isucon/webapp/go/
 
-ENV GOPATH=/home/isucon/tmp/go
-ENV GOCACHE=/home/isucon/tmp/go/.cache
-
-CMD ["go", "run", "./cmd/isuports/main.go"]
+CMD ["./bin-isuports"]

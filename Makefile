@@ -1,10 +1,8 @@
 deploy:
-	ssh isucon12-qualify-retry-1 " \
-		cd /home/isucon; \
-		git checkout .; \
-		git fetch; \
-		git checkout $(BRANCH); \
-		git reset --hard origin/$(BRANCH)"
+	cd webapp/go; \
+	GOOS=linux GOARCH=amd64 go build -o bin-isuports cmd/isuports/main.go; \
+	scp bin-isuports isucon12-qualify-retry-1:/home/isucon/webapp/go/ \
+	ssh isucon12-qualify-retry-1 "sudo systemctl restart isuports.service"
 
 build:
 	ssh isucon12-qualify-retry-1 "sudo systemctl restart isuports.service"
